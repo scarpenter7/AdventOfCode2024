@@ -2,12 +2,12 @@ import unittest
 import time
 from day1 import part1, part2
 
-class MyTestCase1(unittest.TestCase):
+class Part1(unittest.TestCase):
     def test1(self):
         res = part1("test1.txt")
         self.assertEqual(res, 11)
 
-class MyTestCase2(unittest.TestCase):
+class Part2(unittest.TestCase):
     def test1(self):
         res = part2("test1.txt")
         self.assertEqual(res, 31)
