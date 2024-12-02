@@ -16,5 +16,4 @@ def part1(filename):
 
 def part2(filename):
     arr1, arr2 = parse(filename)
-    map2 = {a: arr2.count(a) for a in arr1}
-    return sum([a*map2[a] for a in arr1])
+    return sum([a*arr2.count(a) for a in arr1])
