@@ -18,8 +18,3 @@ def part2(filename):
     arr1, arr2 = parse(filename)
     map2 = {a: arr2.count(a) for a in arr1}
     return sum([a*map2[a] for a in arr1])
-
-if __name__ == "__main__":
-    print(part1("day1-1input.txt"))
-    print()
-    print(part2("day1-2input.txt"))
