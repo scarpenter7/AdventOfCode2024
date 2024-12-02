@@ -18,13 +18,11 @@ def is_monotonic(arr):
 
 def isSafe(row):
     if not is_monotonic(row):
-        return 0
+        return False
     diffs = np.abs(np.diff(row))
     min_value = 1
     max_value = 3
-    if np.any((diffs < min_value) | (diffs > max_value)):
-        return 0
-    return 1
+    return np.all((diffs >= min_value) & (diffs <= max_value))
 
 def part2(filename):
     grid = parse(filename)
@@ -32,8 +30,6 @@ def part2(filename):
 
 def isKindaSafe(row):
     if isSafe(row):
-        return 1
+        return True
     subrows = np.array([np.delete(row, i) for i in range(len(row))])
-    if np.any(np.array([isSafe(subrow) for subrow in subrows])):
-        return 1
-    return 0
+    return np.any(np.array([isSafe(subrow) for subrow in subrows]))
