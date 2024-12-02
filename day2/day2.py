@@ -14,7 +14,8 @@ def part1(filename):
     return sum([isSafe(row) for row in grid])
 
 def is_monotonic(arr):
-  return np.all(np.diff(arr) >= 0) or np.all(np.diff(arr) <= 0)
+    diffs = np.diff(arr)
+    return np.all(diffs >= 0) or np.all(diffs <= 0)
 
 def isSafe(row):
     if not is_monotonic(row):
