@@ -49,5 +49,5 @@ def reOrder(update, rules):
             numsOutOfOrder = [n for n in prevNums if n in rules[num]]
             for numOutOfOrder in numsOutOfOrder:
                 reorderedUpdate.remove(numOutOfOrder)
-                reorderedUpdate.append(numOutOfOrder)
+            reorderedUpdate += numsOutOfOrder
     return getMiddle(reorderedUpdate)
