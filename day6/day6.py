@@ -64,7 +64,6 @@ def checkIfLoops(value, obstacleRow, obstableCol, grid):
     row, col = np.where(gridCopy == '^')
 
     currRow, currCol = row[0], col[0]
-    gridCopy[currRow, currCol] = 'X'
     gridCopy[obstacleRow, obstableCol] = '#'
     visitedDestinationDirPairs = {(currRow, currCol, 0)}  # started at this location going up
     currDir = 0
@@ -73,22 +72,18 @@ def checkIfLoops(value, obstacleRow, obstableCol, grid):
         if currDirStr == "up":
             fullPath = gridCopy[:currRow, currCol][::-1]
             distTraveled = getDistTraveled(fullPath)
-            gridCopy[currRow - distTraveled:currRow, currCol] = 'X'
             currRow -= distTraveled
         elif currDirStr == "right":
             fullPath = gridCopy[currRow, currCol + 1:]
             distTraveled = getDistTraveled(fullPath)
-            gridCopy[currRow, currCol:currCol + distTraveled + 1] = 'X'
             currCol += distTraveled
         elif currDirStr == "down":
             fullPath = gridCopy[currRow + 1:, currCol]
             distTraveled = getDistTraveled(fullPath)
-            gridCopy[currRow:currRow + distTraveled + 1, currCol] = 'X'
             currRow += distTraveled
         elif currDirStr == "left":
             fullPath = gridCopy[currRow, :currCol][::-1]
             distTraveled = getDistTraveled(fullPath)
-            gridCopy[currRow, currCol - distTraveled:currCol] = 'X'
             currCol -= distTraveled
         if '#' not in fullPath:
             return False
