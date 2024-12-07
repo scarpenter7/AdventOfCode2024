@@ -1,5 +1,3 @@
-from itertools import combinations
-from typing import List
 
 def parse(filename):
     rows = []
