@@ -23,7 +23,9 @@ class Scratch(unittest.TestCase):
 if __name__ == '__main__':
     print(part1("input.txt"))
     print()
+    start = time.time()
     print(part2("input.txt"))
+    print(time.time() - start)
     time.sleep(1)
     unittest.main()
 
