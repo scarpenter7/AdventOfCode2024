@@ -46,7 +46,6 @@ def part2(filename):
     blocks = nums[::2]
     gaps = nums[1::2]
     usedGaps = [0] * len(gaps)
-    gapTracker = {}
 
     for i, block in enumerate(blocks[::-1]):
         blockID = len(blocks) - i - 1
