@@ -46,14 +46,14 @@ def part2(filename):
     blocks = nums[::2]
     gaps = nums[1::2]
     usedGaps = [0] * len(gaps)
+    gapTracker = {}
 
     for i, block in enumerate(blocks[::-1]):
         blockID = len(blocks) - i - 1
-        blockIdx = sum(nums[::-1][i * 2+ 1:]) - block
+        blockIdx = sum(nums[::-1][i * 2 + 1:]) - block
         gapIdx = 0
         while gapIdx < len(gaps) and block > gaps[gapIdx]:
             gapIdx += 1
-        gapIdx = min()
         if gapIdx < len(gaps):
             wideRepGapIdx = sum(nums[:int(gapIdx * 2) + 1]) + usedGaps[gapIdx]
             if wideRepGapIdx < blockIdx:
